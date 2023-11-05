@@ -121,11 +121,9 @@ class ContaBancaria {
 };
 ```
 
-Para escrever código que cria um objeto à partir de uma classe, atribui valores a seus atributos e utiliza seus métodos, não é estritamente necessário entender o funcionamento interno da classe.
+Para escrever código que cria um objeto à partir de uma classe, atribuir valores a seus atributos e utilizar seus métodos, não é estritamente necessário entender o funcionamento interno da classe.
 
-É necessário saber o nome da classe, seus atributos e métodos disponíveis, e os dados que precisam ser fornecidos quando esses métodos são utilizados.
-
-Tudo o que um programador estritamente precisa saber é a **interface da classe**.
+É necessário saber o nome da classe, seus atributos e métodos disponíveis, e os dados que precisam ser fornecidos quando esses métodos são utilizados. Isto é, é necessário saber a **interface da classe**.
 
 A encapsulação simplifica a utilização de objetos e garante que os dados e operações encapsulados estão seguros.
 
