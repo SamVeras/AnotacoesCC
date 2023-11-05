@@ -86,6 +86,8 @@ Livro new_livro("Mais Um Livro de Autoajuda", "Caio Rolando da Rocha", 2022);
 
 Simplificação da realidade.
 
+*Expandir essa sessão quando estudar melhor esse conceito.*
+
 ## Encapsulação
 
 Também conhecido como *ocultação de informação*.
