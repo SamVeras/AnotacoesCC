@@ -1,4 +1,4 @@
-## Nota: sob construção
+## Nota: sob construção 🏗️
 
 # Anotações sobre Programação Orientada a Objetos
 ### Índice
