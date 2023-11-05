@@ -54,7 +54,7 @@ Quando os objetos são criados, seus atributos podem ter valores atribuídos, to
 ```C++
 livro_mem_pos.titulo = "Memórias Póstumas de Brás Cubas";
 livro_mem_pos.autor = "Joaquim Maria Machado de Assis";
-livro_mem_pos.anoPublicacao = 1881;
+livro_mem_pos.ano_publicacao = 1881;
 livro_mem_pos.preco = 22.50;
 ```
 
