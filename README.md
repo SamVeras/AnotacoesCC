@@ -24,7 +24,7 @@ Um objeto pode ser algo não-físico.
 Uma consulta médica, uma reserva de hotel, uma conta bancária.
 ```
 
-Um objeto é uma "coisa" que você deseja **guardar ou processar dados sobre**.
+Um objeto é algo que você deseja **guardar ou processar dados sobre**.
 
 Cada objeto é uma **instância** de uma classe na memória do computador.
 
