@@ -76,7 +76,7 @@ A combinação dos valores dos atributos atuais de um objeto é conhecida como o
 
 ```C++
 Livro(std::string t, std::string a, int y)
-    : (t), autor(a), ano_publicacao(y), preco(0){};
+    : titulo(t), autor(a), ano_publicacao(y), preco(0){};
 ```
 ```C++
 Livro new_livro("Mais Um Livro de Autoajuda", "Caio Rolando da Rocha", 2022);
