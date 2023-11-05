@@ -164,7 +164,7 @@ Nota-se que existem dois tipos de superclasse:
 - a superclasse **direta**, que é herdada explicitamente (um nível acima na hierarquia),
 - e a superclasse **indireta**, herdada de dois ou mais níveis acima na hierarquia.
 
-Frequentemente, a herança defina uma relação de "é um" ou "tipo de" entre objetos.
+Frequentemente, a herança define uma relação de "é um" ou "tipo de" entre objetos.
 
 ```C++
 // Na geometria um retângulo ->é um<- quadrilátero.
@@ -183,4 +183,6 @@ class Programador : public Funcionario {
 }
 ```
 
-A declaração de uma subclasse não afeta o código de sua super classe. A herança preserva a integridade da superclasse.
+A declaração de uma subclasse não afeta o código de sua super classe.
+
+A herança preserva a integridade da superclasse.
