@@ -85,8 +85,11 @@ A combinação dos valores dos atributos atuais de um objeto é conhecida como o
 É possível atribuir valores a atributos **enquanto** um objeto é instanciado através de um método especial conhecido como **construtor**.
 
 ```C++
-Livro(std::string t, std::string a, int y)
-    : titulo(t), autor(a), ano_publicacao(y), preco(0){};
+class Livro {
+   public:
+    Livro(std::string t, std::string a, int y)
+        : titulo(t), autor(a), ano_publicacao(y), preco(0){};
+};
 ```
 ```C++
 Livro new_livro("Mais Um Livro de Autoajuda", "Caio Rolando da Rocha", 2022);
