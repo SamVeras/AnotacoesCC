@@ -108,22 +108,22 @@ Por definição, uma classe abstrata deve possuir pelo menos um método virtual.
 
 ```C++
 class Instrumento {
-	public:
-		virtual void tocar() = 0 // Função virtual
+   public:
+    virtual void tocar() = 0  // Função virtual
 };
 
 class Guitarra : public InstrumentoMusical {
-	public:
-		void tocar() override {
-			std::cout << "Tocando a guitarra" << std::endl;
-		}
+   public:
+    void tocar() override {
+        std::cout << "Tocando a guitarra" << std::endl;
+    }
 };
 
 class Piano : public InstrumentoMusical {
-	public:
-		void tocar() override {
-			std::cout << "Tocando o piano" << std::endl;
-		}
+   public:
+    void tocar() override {
+        std::cout << "Tocando o piano" << std::endl;
+    }
 };
 ```
 A lógica específica que cada instrumento implementa para ser tocado é omitida e todos os instrumentos podem ser tocados pela chamada de um mesmo método, sem que o usuário se preocupe com o que está acontecendo por trás da execução, isso é abstração. 
