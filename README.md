@@ -99,9 +99,12 @@ Livro new_livro("Mais Um Livro de Autoajuda", "Caio Rolando da Rocha", 2022);
 
 A abstração é a omissão de detalhes para que apenas as informações mais essenciais sejam mantidas. 
 
-Na programação orientada a objetos a abstração é utilizada de diversas maneiras. Podemos criar uma classe abstrata que possui os atributos e métodos comuns entre um grupo de objetos que herdarão essa classe. Desse modo podemos ter, por exemplo, diversos instrumentos musicais com o método "tocar", sendo que todos executam esse método de forma diferente e específica ao instrumento. 
+Podemos criar uma classe abstrata que possui os atributos e métodos comuns entre um grupo de objetos que herdarão essa classe.
 
-A lógica específica que cada instrumento implementa para ser tocado é omitida e todos os instrumentos podem ser tocados pela chamada de um mesmo método, sem que o usuário se preocupe com o que está acontecendo por trás da execução, isso é abstração. Por definição, uma classe abstrata deve possuir pelo menos um método virtual.
+Podemos ter, por exemplo, diversos instrumentos musicais com o método "tocar", sendo que todos executam esse método de forma diferente e específica ao instrumento. 
+
+
+Por definição, uma classe abstrata deve possuir pelo menos um método virtual.
 
 ```C++
 class Instrumento {
@@ -123,6 +126,7 @@ class Piano : public InstrumentoMusical {
 		}
 };
 ```
+A lógica específica que cada instrumento implementa para ser tocado é omitida e todos os instrumentos podem ser tocados pela chamada de um mesmo método, sem que o usuário se preocupe com o que está acontecendo por trás da execução, isso é abstração. 
 ## Encapsulação
 
 Também conhecido como *ocultação de informação*.
