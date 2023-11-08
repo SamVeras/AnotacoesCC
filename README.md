@@ -6,7 +6,7 @@
 1. [Classe](#classe)
 1. [Instanciação](#instanciação)
 1. [Abstração](#abstração)
-1. [Encapsulação](#encapsulação)
+1. [Encapsulamento](#encapsulamento)
 1. [Herança](#herança)
 1. [Polimorfismo](#polimorfismo)
 
@@ -127,7 +127,7 @@ class Piano : public Instrumento {
 };
 ```
 A lógica específica que cada instrumento implementa para ser tocado é omitida e todos os instrumentos podem ser tocados pela chamada de um mesmo método, sem que o usuário se preocupe com o que está acontecendo por trás da execução, isso é abstração. 
-## Encapsulação
+## Encapsulamento
 
 Também conhecido como *ocultação de informação*.
 
