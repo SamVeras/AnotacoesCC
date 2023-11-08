@@ -112,14 +112,14 @@ class Instrumento {
     virtual void tocar() = 0  // Função virtual
 };
 
-class Guitarra : public InstrumentoMusical {
+class Guitarra : public Instrumento {
    public:
     void tocar() override {
         std::cout << "Tocando a guitarra" << std::endl;
     }
 };
 
-class Piano : public InstrumentoMusical {
+class Piano : public Instrumento {
    public:
     void tocar() override {
         std::cout << "Tocando o piano" << std::endl;
