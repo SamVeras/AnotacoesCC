@@ -3,7 +3,7 @@
 # Anotações sobre Programação Orientada a Objetos
 
 ### Índice
-1. Programação Orientada a Objetos
+1. [Programação Orientada a Objetos](#programação-orientada-a-objetos)
     1. [Objeto](#objeto)
     1. [Classe](#classe)
     1. [Instanciação](#instanciação)
@@ -11,12 +11,12 @@
     1. [Encapsulamento](#encapsulamento)
     1. [Herança](#herança)
     1. [Polimorfismo](#polimorfismo)
-2. C++
+2. [C++](#c)
     1. [Compilação](#compilação)
-        1. Pré-Processamento
-        1. Compilação
-        1. Assembling
-        1. Linking
+        1. [Pré-Processamento](#1-pré-processamento)
+        1. [Compilação](#2-compilação)
+        1. [Assembling](#3-assembling)
+        1. [Linking](#4-linking)
 
 # Programação Orientada a Objetos
 ## Objeto
