@@ -1,15 +1,24 @@
 ## Nota: sob construção 🏗️
 
 # Anotações sobre Programação Orientada a Objetos
-### Índice
-1. [Objeto](#objeto)
-1. [Classe](#classe)
-1. [Instanciação](#instanciação)
-1. [Abstração](#abstração)
-1. [Encapsulamento](#encapsulamento)
-1. [Herança](#herança)
-1. [Polimorfismo](#polimorfismo)
 
+### Índice
+1. [Programação Orientada a Objetos](#programação-orientada-a-objetos)
+    1. [Objeto](#objeto)
+    1. [Classe](#classe)
+    1. [Instanciação](#instanciação)
+    1. [Abstração](#abstração)
+    1. [Encapsulamento](#encapsulamento)
+    1. [Herança](#herança)
+    1. [Polimorfismo](#polimorfismo)
+2. [C++](#c)
+    1. [Compilação](#compilação)
+        1. [Pré-Processamento](#1-pré-processamento)
+        1. [Compilação](#2-compilação)
+        1. [Assembling](#3-assembling)
+        1. [Linking](#4-linking)
+
+# Programação Orientada a Objetos
 ## Objeto
 
 Também pode ser chamado de **entidade**.
@@ -225,3 +234,56 @@ class Programador : public Funcionario {
 A declaração de uma subclasse não afeta o código de sua super classe.
 
 A herança preserva a integridade da superclasse.
+
+# C++
+## Compilação
+
+O compilador recebe arquivos que contém código escrito em C++ e gera um arquivo que pode ser executado pelo computador. Existem duas partes principais desse processo: a compilação e vinculação (*linking*).
+
+É importante ressaltar a diferença entre os arquivos *header* e os arquivos *source*. Arquivos *header* contém o código que descreve as funcionalidades presentes, e os arquivos *source* contém a implementação dessas funcionalidades.
+
+### 1. Pré-processamento
+O trabalho do pré-processador é passar pelas palavras-chaves de pré-processamento, como o ``#define`` e o ``#include``, e aplicar as devidas mudanças no código. 
+
+O ``#define`` é usado para substituição de texto e o ``#include`` para incluir o conteúdo de outros arquivos no arquivo atual. Digamos que você possui os seguintes arquivos a serem compilados:
+```C++
+//header.h
+int soma(int a, int b){
+    return a + b;
+}
+```
+```C++
+//main.cpp
+#include <header.h>
+#define inteiro int
+
+inteiro main(){
+}
+```
+O pré-processador criará o seguinte arquivo:
+```C++
+int soma(int a, int b){
+    return a + b;
+}
+
+int main(){
+}
+```
+
+O pré-processador também lida com as palavras-chaves de compilação condicional. Que permitem que certas partes do código só sejam incluídas no arquivo final caso uma condição seja verdadeira.
+```cpp
+#if 0
+int main(){
+}
+#endif
+```
+No exemplo acima, o pré-processador removeria todo o código, já que a condição não é verdadeira (0 equivale a falso).
+
+### 2. Compilação
+Após o pré-processador gerar o arquivo "traduzido" que contém apenas código em C++, o compilador percorre as linhas desse arquivo e as converte em código objeto (geralmente assembly). O compilador também verifica erros de sintaxe e otimiza o código.
+
+### 3. Assembling
+O assembler transforma o código objeto gerado pelo compilador em código de máquina (binário). O assembler também lida com os símbolos locais, que são as variavéis e funções de cada arquivo individual. Eles são chamados de símbolos porque até essa etapa eles não estão vinculados com seus respectivos endereços e são apenas *placeholders*, é trabalho do assembler vincular os símbolos locais de cada arquivo com seus endereços. É importante ressaltar que a vinculação entre diferentes arquivos não é feita nessa etapa.
+
+### 4. Linking
+O linker então faz a tarefa de combinar os vários arquivos objeto gerados em um único arquivo executável. Ele vincula os símbolos globalmente e verifica se todas as referências estão corretas.
