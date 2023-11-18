@@ -238,9 +238,9 @@ A herança preserva a integridade da superclasse.
 # C++
 ## Compilação
 
-O compilador recebe arquivos que contém código escrito em C++ e gera um arquivo que pode ser executado pelo computador. Existem duas partes principais desse processo: a compilação e vinculação (*linking*).
+O compilador recebe arquivos que contém código escrito em C++ e gera um arquivo que pode ser executado pelo computador. Existem duas partes principais desse processo: a compilação e a vinculação (*linking*).
 
-É importante ressaltar a diferença entre os arquivos *header* e os arquivos *source*. Arquivos *header* contém o código que descreve as funcionalidades presentes, e os arquivos *source* contém a implementação dessas funcionalidades.
+É importante ressaltar a diferença entre os arquivos *header* (.h/.hh/.hpp) e os arquivos *source* (.cpp/.cxx/.cc). Arquivos *header* contém o código que descreve as funcionalidades presentes, e os arquivos *source* contém a implementação dessas funcionalidades.
 
 ### 1. Pré-processamento
 O trabalho do pré-processador é passar pelas palavras-chaves de pré-processamento, como o ``#define`` e o ``#include``, e aplicar as devidas mudanças no código. 
