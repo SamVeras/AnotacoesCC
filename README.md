@@ -279,16 +279,12 @@ Isso significa que uma classe pode implementar um método herdado de sua própri
 maneira, e é então possível utilizar classes diferentes através da mesma
 _interface_.
 
-Como um exemplo real, ao invés de dizer
-
-> Eu comprei um Samsung S20 novo!
-
-você poderia dizer
+Por exemplo, contemple a seguinte frase:
 
 > Eu comprei um celular novo!
 
-Essa frase continuaria sendo verdadeira se você tivesse comprado um iPhone 11 ou
-um Redmi Note 9.
+Essa frase continua sendo verdadeira se você tivesse comprado um iPhone 11,
+Samsung S20 ou um Redmi Note 9.
 
 A flexibilidade (polimorfismo) da palavra "celular" significa que você não
 precisa especificar exatamente o tipo de celular a que você se refere.
@@ -329,14 +325,11 @@ class Barco : public Veiculo {
 Cada uma das subclasses possui dados diferentes de tipos diferentes.
 
 Ao faze-las serem responsáveis pelos seus dados e pela implementação do método
-`mover()`, é possível alcançar o polimorfismo.
+herdado, é possível alcançar o polimorfismo.
 
-Para qualquer instância das classes Carro, Aviao ou Barco, é possível utilizar,
-por exemplo,
-
-```C++
-nome_do_objeto.mover()
-```
+Para qualquer instância de classe derivada de Veiculo, é possível chamar o
+método `mover()` e, dependendo da subclasse específica do objeto, sua respectiva
+implementação seria utilizada.
 
 # C++
 
