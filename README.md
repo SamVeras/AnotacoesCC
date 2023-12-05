@@ -355,29 +355,29 @@ conteúdo de outros arquivos no arquivo atual. Digamos que você possui os
 seguintes arquivos a serem compilados:
 
 ```C++
-//header.h
-int soma(int a, int b){
+// header.h
+int soma(int a, int b) {
     return a + b;
 }
 ```
 
 ```C++
-//main.cpp
+// main.cpp
 #include <header.h>
 #define inteiro int
 
-inteiro main(){
+inteiro main() {
 }
 ```
 
 O pré-processador criará o seguinte arquivo:
 
 ```C++
-int soma(int a, int b){
+int soma(int a, int b) {
     return a + b;
 }
 
-int main(){
+int main() {
 }
 ```
 
