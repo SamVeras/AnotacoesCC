@@ -272,9 +272,8 @@ A herança preserva a integridade da superclasse.
 
 Polimorfismo se refere à habilidade de um objeto assumir múltiplas formas.
 
-Na prática, na programação orientada à objetos, isso se refere à habilidade de
-uma linguagem de programação de processar objetos diferentemente de acordo com
-sua classe ou tipo de dados.
+Na prática isso se refere à habilidade de uma linguagem de programação de
+processar objetos diferentemente de acordo com sua classe ou tipo de dados.
 
 Isso significa que uma classe pode implementar um método herdado de sua própria
 maneira, e é então possível utilizar classes diferentes através da mesma
@@ -299,7 +298,7 @@ class Veiculo {
    public:
     virtual void mover() = 0;
     /* O método mover() é abstrato & puro, isso é, as
-    subclasses precisam a implementar para utilizá-la */
+    subclasses precisam o implementar para utilizá-lo */
 };
 
 class Carro : public Veiculo {
