@@ -1,3 +1,3 @@
 # Anotações sobre Ciências da Computação
 
-[OOP1.md](Programação Orientada a Objetos 1)
+[POO 1](OOP1.md)
