@@ -8,3 +8,4 @@
 - [Red Blob Games](https://www.redblobgames.com)\
   Explicações visuais e interativas sobre matemática e algoritmos. Relevante a
   programação gráfica e desenvolvimento de jogos ou simulações.
+- [Paul's Math Notes](https://tutorial.math.lamar.edu/)
