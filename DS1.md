@@ -1,14 +1,18 @@
-Lista
-Fila
-Pilha
-Busca
+## Invariante de Loop
 
-Ordenação
-N^2 e nlogn
-Merge sort, bubble sort
+Uma invariante de loop é uma asserção lógica, uma propriedade do loop de software que é verdadeira antes, e depois, de cada iteração.
 
-Análise e prova:
-Theta(n)
-Invariante de loop
-Indução
-Recursão
+### Coisas:
+
+- Lista
+- Fila
+- Pilha
+- Busca
+- Ordenação
+- N^2 e nlogn
+- Merge sort, bubble sort
+- Análise e prova:
+- Theta(n)
+- Invariante de loop
+- Indução
+- Recursão
