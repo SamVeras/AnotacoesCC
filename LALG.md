@@ -192,21 +192,25 @@ Agora podemos substituir o valor de $z$ na segunda equação e obter o valor de 
 **Método de Gauss-Jordan:** similar ao método de Gauss, mas escalonamos completamente a matriz do sistema. Resolvendo o sistema anterior através de Gauss-Jordan:
 
 $$
-\begin{bmatrix}
-1 & 1 & -1 & \vert & -2 \\
-2 & -1 & 1 & \vert & 5 \\
--1 & 2 & 2 & \vert & 1 \\
-\end{bmatrix}
+\left[
+\begin{array}{ccc|c}
+1 & 1 & -1 & -2 \\
+2 & -1 & 1 & 5 \\
+-1 & 2 & 2 & 1 \\
+\end{array}
+\right]
 $$
 
 Escalonando completamente:
 
 $$
-\begin{bmatrix}
-1 & 0 & 0 & \vert & 5 \\
-0 & 1 & 0 & \vert & -1 \\
-0 & 0 & 1 & \vert & 2 \\
-\end{bmatrix}
+\left[
+\begin{array}{ccc|c}
+1 & 0 & 0 & 5 \\
+0 & 1 & 0 & -1 \\
+0 & 0 & 1 & 2 \\
+\end{array}
+\right]
 $$
 
 Podemos ver que o conjunto obtido foi o mesmo, $(5, -1, 2)$.
