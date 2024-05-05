@@ -156,21 +156,25 @@ Existem dois métodos principais para a solução de sistemas lineares:
 Exemplo:
 
 $$
-\begin{bmatrix}
-1 & 1 & -1 & \vert & -2 \\
-2 & -1 & 1 & \vert & 5 \\
--1 & 2 & 2 & \vert & 1 \\
-\end{bmatrix}
+\left[
+\begin{array}{ccc|c}
+1 & 1 & -1 & -2 \\
+2 & -1 & 1 & 5 \\
+-1 & 2 & 2 & 1 \\
+\end{array}
+\right]
 $$
 
 Escalonando a matriz, obtemos:
 
 $$
-\begin{bmatrix}
-1 & 1 & -1 & \vert & 2 \\
-0 & 1 & -1 & \vert & -3 \\
-0 & 0 & 1 & \vert & 2 \\
-\end{bmatrix} \\
+\left[
+\begin{array}{ccc|c}
+1 & 1 & -1 & 2 \\
+0 & 1 & -1 & -3 \\
+0 & 0 & 1 & 2 \\
+\end{array}
+\right]
 $$
 
 Que equivale ao seguinte sistema de equações:
