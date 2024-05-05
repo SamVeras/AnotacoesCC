@@ -272,19 +272,19 @@ $$
 1 \cdot u = u
 $$
 
-### Vetores no $R^n$
+## Vetores no $R^n$
 
 Um vetor no R^n é um conjunto ordenado de n números reais, representado como:
 $$\vec{v} = (v_1, v_2, \ldots, v_n)$$
 Onde $v_1, v_2, \ldots, v_n$ são as componentes do vetor $\vec{v}$.
 
-### Subespaços Vetoriais
+## Subespaços Vetoriais
 
 Se $V$ é um espaço vetorial e quisermos mostrar que o subconjunto $W$ de $V$ é um subespaço vetorial, as propriedades $A_1$, $A_2$, $M_1$, $M_2$, $M_3$ e $M_4$ são válidas automaticamente para $W$ se forem válidas para os vetores de $V$, dizemos que são propriedades **hereditárias**.
 
 Porém, o subconjunto pode não conter o vetor nulo ou não conter o vetor oposto de um vetor qualquer, portanto precisamos garantir a validade dessas propriedades.
 
-#### Teorema 2.1
+### Teorema 2.1
 
 Seja $V$ um espaço vetorial. Um subconjunto $W$, não vazio, é um subespaço vetorial de $V$ se forem satisfeitas as seguintes condições:
 
@@ -297,7 +297,7 @@ Ou seja, a soma entre dois vetores do subespaço sempre resulta em um vetor que 
 
 Com isso, garantimos todas as oito propriedades do subespaço vetorial.
 
-### Combinação Linear
+## Combinação Linear
 
 Uma combinação linear de vetores $\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n$ em um espaço vetorial $V$ é uma expressão da forma:
 $$\alpha_1\vec{v}_1 + \alpha_2\vec{v}_2 + \ldots + \alpha_n\vec{v}_n$$
@@ -305,6 +305,7 @@ $$\alpha_1\vec{v}_1 + \alpha_2\vec{v}_2 + \ldots + \alpha_n\vec{v}_n$$
 Onde $\alpha_1, \alpha_2, \ldots, \alpha_n$ são escalares.
 Um conjunto de vetores ${\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n}$ é linearmente dependente (LD) se existe uma combinação linear não trivial (onde pelo menos um dos escalares é diferente de zero) que resulta no vetor nulo $\vec{0}$. Caso contrário, é linearmente independente (LI).
 
-### Subespaços Gerados
+## Subespaços Gerados
+Um subespaço gerado é o espaço de todos os vetores que podem ser obtidos combinando linearmente um conjunto de vetores pertencentes a um determinado espaço vetorial $V$.
 
-O
+## Base e dimensão
