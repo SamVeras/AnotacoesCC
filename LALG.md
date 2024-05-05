@@ -164,55 +164,111 @@ $$
 
 Agora podemos substituir o valor de $z$ na segunda equação e obter o valor de  $y$ e então substituir ambos na primeira equação para obter  o valor de $x$. Chegando no conjunto $(5,-1,2)$.
 
-**Método de Gauss-Jordan:** similar ao método de Gauss, mas escalonamos completamente a matriz do sistema. Resolvendo 
+**Método de Gauss-Jordan:** similar ao método de Gauss, mas escalonamos completamente a matriz do sistema. Resolvendo o sistema anterior através de Gauss-Jordan:
+
+$$
+\begin{bmatrix}
+1 & 1 & -1 & \vert & -2 \\
+2 & -1 & 1 & \vert & 5 \\
+-1 & 2 & 2 & \vert & 1 \\
+\end{bmatrix}
+\\
+$$
+
+Escalonando completamente:
+$$
+\begin{bmatrix}
+1 & 0 & 0 & \vert & 5 \\
+0 & 1 & 0 & \vert & -1 \\
+0 & 0 & 1 & \vert & 2 \\
+\end{bmatrix} \\
+$$
+Podemos ver que o conjunto obtido foi o mesmo, $(5, -1, 2)$.
 
 
-## Vetores no $R^n$
-### Definição
+## Espaços Vetoriais
+
+Um espaço vetorial $V$ sobre um corpo $F$ (geralmente $\mathbb{R}$ ou $\mathbb{C}$) é um conjunto não vazio de vetores no qual são definidas duas operações:
+
+**Soma** $(+): V * V \rightarrow V$\
+**Multiplicação por escalar** $(*): R * V \rightarrow V$
+
+De modo que para quaisquer $u, v$ e $w$ $\in V$ e $a$ e $b \in\mathbb{R}$ as seguintes propriedades são verdadeiras:
+
+### Propriedades da Adição
+
+
+
+A1 - Associatividade da Adição:
+
+$$\quad (u + v) + w = u + (v + w)$$
+
+A2 - Comutatividade da Adição:
+$$
+\quad u + v = v + u
+$$
+
+
+A3 - Elemento neutro da adição:
+
+$$\text{Existe} \space 0 \in V \text{ tal que }, \space u + 0 = u$$
+
+
+A4 - Elemento oposto aditivo:
+$$
+\forall u \in V, \space \text{existe } (-u) \text{ tal que } u + (-u) = \mathbf{0}
+$$
+
+### Propriedades da Multiplicação
+M1 - Distributividade da multiplicação (escalar):
+
+$$
+a\cdot(u+v) =a \cdot u + a \cdot v
+$$
+
+M2 - Distributividade da multiplicação (vetor):
+$$
+u \cdot (a+b)=a \cdot u + b \cdot u 
+$$
+
+M3 - Associatividade da multiplicação escalar:
+
+$$
+a \cdot (b \cdot u) = (a \cdot b) \cdot u 
+$$
+
+M4 - Elemento neutro da multiplicação:
+$$
+1 \cdot u = u
+$$
+
+### Vetores no $R^n$
 Um vetor no R^n é um conjunto ordenado de n números reais, representado como:
 $$\vec{v} = (v_1, v_2, \ldots, v_n)$$
 Onde $v_1, v_2, \ldots, v_n$ são as componentes do vetor $\vec{v}$.
 
-### Operações com Vetores
-**Igualdade:** Dois vetores $\vec{u}$ e $\vec{v}$ são iguais se, e somente se, suas componentes correspondentes forem iguais.
+### Subespaços Vetoriais
+Se $V$ é um espaço vetorial e quisermos mostrar que o subconjunto $W$ de $V$ é um subespaço vetorial, as propriedades $A_1$, $A_2$, $M_1$, $M_2$, $M_3$ e $M_4$ são válidas automaticamente para $W$ se forem válidas para os vetores de $V$, dizemos que são propriedades **hereditárias**.
 
-**Adição de Vetores:** A soma de dois vetores $\vec{u}$ e $\vec{v}$ é um vetor $\vec{w}$ tal que $\vec{w} = \vec{u} + \vec{v}$, onde as componentes de $\vec{w}$ são a soma das componentes correspondentes de $\vec{u}$ e $\vec{v}$.
+Porém, o subconjunto pode não conter o vetor nulo ou não conter o vetor oposto de um vetor qualquer, portanto precisamos garantir a validade dessas propriedades.
 
-**Multiplicação por Escalar:** O produto de um escalar $k$ por um vetor $\vec{v}$ é um vetor $\vec{w}$ tal que $\vec{w} = k\vec{v}$, onde as componentes de $\vec{w}$ são $k$ vezes as componentes correspondentes de $\vec{v}$.
+#### Teorema 2.1
+Seja $V$ um espaço vetorial. Um subconjunto $W$, não vazio, é um subespaço vetorial de $V$ se forem satisfeitas as seguintes condições:
+$$
+\text{1. Para todo } u, v \in W, \space \text{tem-se: u + v} \in W\\
+\text{2. Para todo } u \in W \text{ e } a \in \mathbb{R}, \space \text{tem-se: } a \cdot u \in W
+$$
 
-**Norma Euclidiana:** A norma euclidiana de um vetor $\vec{v} = (v_1, v_2, \ldots, v_n)$ é dada por:
-$$|\vec{v}| = \sqrt{v_1^2 + v_2^2 + \ldots + v_n^2}$$
+Ou seja, a soma entre dois vetores do subespaço sempre resulta em um vetor que também está no subespaço. O mesmo se segue para a multiplicação de um vetor do subespaço por um escalar real.
 
-### Espaços Vetoriais
+Com isso, garantimos todas as oito propriedades do subespaço vetorial.
 
-Um espaço vetorial $V$ sobre um corpo $F$ (geralmente $\mathbb{R}$ ou $\mathbb{C}$) é um conjunto não vazio de vetores que satisfaz as seguintes propriedades:
-
-**Fechado para adição**: Para quaisquer $\vec{u}, \vec{v} \in V$, temos $\vec{u} + \vec{v} \in V$.
-
-**Existência do elemento neutro aditivo**: Existe um vetor $\vec{0} \in V$ tal que $\vec{u} + \vec{0} = \vec{u}$ para todo $\vec{u} \in V$.
-
-**Existência do oposto aditivo**: Para todo $\vec{u} \in V$, existe $(-\vec{u}) \in V$ tal que $\vec{u} + (-\vec{u}) = \vec{0}$.
-Fechado para multiplicação por escalar: Para todo $\vec{u} \in V$ e todo $\alpha \in F$, temos $\alpha\vec{u} \in V$.
-Distributividade da multiplicação escalar em relação à adição de vetores: Para quaisquer $\vec{u}, \vec{v} \in V$ e $\alpha, \beta \in F$, temos $\alpha(\vec{u} + \vec{v}) = \alpha\vec{u} + \alpha\vec{v}$ e $(\alpha + \beta)\vec{u} = \alpha\vec{u} + \beta\vec{u}$.
-
-#### Exemplos de Espaços Vetoriais
-
-O conjunto $\mathbb{R}^n$ de todas as n-uplas de números reais é um espaço vetorial sobre $\mathbb{R}$.
-O conjunto de todas as matrizes $m \times n$ com entradas em $\mathbb{R}$ é um espaço vetorial sobre $\mathbb{R}$.
-O conjunto de todos os polinômios de grau $\leq n$ com coeficientes em $\mathbb{R}$ é um espaço vetorial sobre $\mathbb{R}$.
-
-Subespaços Vetoriais
-Um subconjunto $W$ de um espaço vetorial $V$ é um subespaço vetorial de $V$ se, e somente se, $W$ satisfaz as seguintes propriedades:
-
-$\vec{0} \in W$
-Se $\vec{u}, \vec{v} \in W$, então $\vec{u} + \vec{v} \in W$
-Se $\vec{u} \in W$ e $\alpha \in F$, então $\alpha\vec{u} \in W$
-
-### Combinação Linear e Dependência / Independência Linear
+### Combinação Linear
 Uma combinação linear de vetores $\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n$ em um espaço vetorial $V$ é uma expressão da forma:
 $$\alpha_1\vec{v}_1 + \alpha_2\vec{v}_2 + \ldots + \alpha_n\vec{v}_n$$
 
 Onde $\alpha_1, \alpha_2, \ldots, \alpha_n$ são escalares.
-Um conjunto de vetores ${\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n}$ é linearmente dependente se existe uma combinação linear não trivial (onde pelo menos um dos escalares é diferente de zero) que resulta no vetor nulo $\vec{0}$. Caso contrário, é linearmente independente.
+Um conjunto de vetores ${\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n}$ é linearmente dependente (LD) se existe uma combinação linear não trivial (onde pelo menos um dos escalares é diferente de zero) que resulta no vetor nulo $\vec{0}$. Caso contrário, é linearmente independente (LI).
 
-Espero que essas informações adicionais complementem seu resumo de forma adequada. Sinta-se à vontade para me perguntar caso tenha dúvidas ou precise de mais detalhes sobre esses tópicos.
+### Subespaços Gerados
+O 
