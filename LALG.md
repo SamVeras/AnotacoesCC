@@ -5,7 +5,7 @@
 ### Equações Lineares
 
 Uma equação linear é uma equação que pode ser colocada na forma padrão:
-$$ a_1x_1 + a_2x_2 + \dots + a_nx_n = b$$
+$$a_1x_1 + a_2x_2 + \dots + a_nx_n = b$$
 Onde:\
 $x_1, x_2, \dots, x_n$ são incógnitas/variáveis\
 $a_1, a_2, \dots,  a_n$ são os coeficientes\
