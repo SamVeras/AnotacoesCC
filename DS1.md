@@ -20,7 +20,9 @@ antes, e depois, de cada iteração.
 
 ## Introduction to Algorithms (Cormen) 2022
 
-### 1.2 Efficiency
+### 1.2 Algorithms as a technology
+
+#### Efficiency
 
 > [...] insertion sort, takes time roughly equal to $c_1 n^2$ to sort $n$ items, where $c_1$ is a
 > constant that does not depend on $n$. That is, it takes time roughly proportional to $n^2$. The
@@ -35,7 +37,7 @@ antes, e depois, de cada iteração.
 > Although insertion sort usually runs faster than merge sort for small input sizes, once the input
 > size $n$ becomes large enough, merge sort’s advantage of $\lg n$ versus $n$ more than compensates
 > for the difference in constant factors. No matter how much smaller $c_1$ is than $c_2$, there is
-> always a crossover point beyond which merge sort is faster. (p.12)
+> always a crossover point beyond which merge sort is faster. **_(p.12)_**
 
 ### 2.1 Insertion Sort
 
@@ -49,9 +51,10 @@ antes, e depois, de cada iteração.
 > right hand just to the right of this card in your left hand. If all the cards in your left hand
 > have values greater than the card in your right hand, then place this card as the leftmost card in
 > your left hand. At all times, the cards held in your left hand are sorted, and these cards were
-> originally the top cards of the pile on the table. (p.18)
+> originally the top cards of the pile on the table. **_(p.18)_**
 
-> ```C++
+> ```C
+> INSERTION-SORT(A, n)
 > for i = 2 to n
 >   key = A[i]
 >   // Insert A[i] into the sorted subarray A[i:i-1]
@@ -62,7 +65,7 @@ antes, e depois, de cada iteração.
 >   A[j+1] = key
 > ```
 >
-> (p.19)
+> **_(p.19)_**
 
 > [...] At the beginning of each iteration of the **for** loop, which is indexed by $i$ , the
 > **_subarray_** (a contiguous portion of the array) consisting of elements $A[1:i-1]$ (that is,
@@ -82,7 +85,7 @@ antes, e depois, de cada iteração.
 >   iteration.
 > - **Termination**: The loop terminates, and when it terminates, the invariant usually along with
 >   the reason that the loop terminated gives us a useful property that helps show that the
->   algorithm is correct. (p.20)
+>   algorithm is correct. **_(p.20)_**
 
 > A loop-invariant proof is a form of mathematical induction, where to prove that a property holds,
 > you prove a base case and an inductive step. Here, showing that the invariant holds before the
@@ -91,7 +94,7 @@ antes, e depois, de cada iteração.
 >
 > The third property is perhaps the most important one, since you are using the loop invariant to
 > show correctness. Typically, you use the loop invariant along with the condition that caused the
-> loop to terminate. (p.20)
+> loop to terminate. **_(p.20)_**
 
 > **Initialization**: We start by showing that the loop invariant holds before the first loop
 > iteration, when $i = 2$. The subarray A[1:i-1] consists of just the single element A[1], which is
@@ -114,4 +117,26 @@ antes, e depois, de cada iteração.
 > increases by $1$ in each iteration. Once $i$’s value exceeds $n$ in line 1, the loop terminates.
 > That is, the loop terminates once $i$ equals $n + 1$. Substituting $n + 1$ for $i$ in the wording
 > of the loop invariant yields that the subarray $A[i:n]$ consists of the elements originally in
-> $A[1:n]$, but in sorted order. Hence, the algorithm is correct. (p.21)
+> $A[1:n]$, but in sorted order. Hence, the algorithm is correct. **_(p.21)_**
+
+### 2.2 Analyzing algorithms
+
+#### Analysis of insertion sort
+
+> The best notion for **_input size_** depends on the problem being studied. For many problems, such
+> as sorting or computing discrete Fourier transforms, the most natural measure is the number of
+> items in the input for example, the number n of items being sorted. For many other problems, such
+> as multiplying two integers, the best measure of input size is the total number of bits needed to
+> represent the input in ordinary binary notation. Sometimes it is more appropriate to describe the
+> size of the input with more than just one number. For example, if the input to an algorithm is a
+> graph, we usually characterize the input size by both the number of vertices and the number of
+> edges in the graph. **_(p.28)_**
+
+> The running time of an algorithm on a particular input is the number of instructions and data
+> accesses executed. **_(p.29)_**
+
+> To analyze the `INSERTION-SORT` procedure, let’s view it on the following page with the time cost
+> of each statement and the number of times each statement is executed. For each $i = 2, 3 \dots n$
+> , let $t_i$ denote the number of times the **while** loop test in line 5 is executed for that value of
+> $i$. When a **for** or **while** loop exits in the usual way because the test in the loop header
+> comes up `FALSE` the test is executed one time more than the loop body. **_(p.29)_**
