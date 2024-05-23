@@ -39,17 +39,17 @@ antes, e depois, de cada iteração.
 
 ### 2.1 Insertion Sort
 
-> [...] Insertion sort works the way you might sort a hand of playing cards. Start with an empty left hand
-> and the cards in a pile on the table. Pick up the ûrst card in the pile and hold it with your left
-> hand. Then, with your right hand, remove one card at a time from the pile, and insert it into the
-> correct position in your left hand. As Figure 2.1 illustrates, you find the correct position for a
-> card by comparing it with each of the cards already in your left hand, starting at the right and
-> moving left. As soon as you see a card in your left hand whose value is less than or equal to the
-> card you’re holding in your right hand, insert the card that you’re holding in your right hand
-> just to the right of this card in your left hand. If all the cards in your left hand have values
-> greater than the card in your right hand, then place this card as the leftmost card in your left
-> hand. At all times, the cards held in your left hand are sorted, and these cards were originally
-> the top cards of the pile on the table. (p.18)
+> [...] Insertion sort works the way you might sort a hand of playing cards. Start with an empty
+> left hand and the cards in a pile on the table. Pick up the ûrst card in the pile and hold it with
+> your left hand. Then, with your right hand, remove one card at a time from the pile, and insert it
+> into the correct position in your left hand. As Figure 2.1 illustrates, you find the correct
+> position for a card by comparing it with each of the cards already in your left hand, starting at
+> the right and moving left. As soon as you see a card in your left hand whose value is less than or
+> equal to the card you’re holding in your right hand, insert the card that you’re holding in your
+> right hand just to the right of this card in your left hand. If all the cards in your left hand
+> have values greater than the card in your right hand, then place this card as the leftmost card in
+> your left hand. At all times, the cards held in your left hand are sorted, and these cards were
+> originally the top cards of the pile on the table. (p.18)
 
 > ```C++
 > for i = 2 to n
@@ -83,3 +83,35 @@ antes, e depois, de cada iteração.
 > - **Termination**: The loop terminates, and when it terminates, the invariant usually along with
 >   the reason that the loop terminated gives us a useful property that helps show that the
 >   algorithm is correct. (p.20)
+
+> A loop-invariant proof is a form of mathematical induction, where to prove that a property holds,
+> you prove a base case and an inductive step. Here, showing that the invariant holds before the
+> first iteration corresponds to the base case, and showing that the invariant holds from iteration
+> to iteration corresponds to the inductive step.
+>
+> The third property is perhaps the most important one, since you are using the loop invariant to
+> show correctness. Typically, you use the loop invariant along with the condition that caused the
+> loop to terminate. (p.20)
+
+> **Initialization**: We start by showing that the loop invariant holds before the first loop
+> iteration, when $i = 2$. The subarray A[1:i-1] consists of just the single element A[1], which is
+> in fact the original element in A[1]. Moreover, this subarray is sorted (after all, how could a
+> subarray with just one value not be sorted?), which shows that the loop invariant holds prior to
+> the ûrst iteration of the loop.
+>
+> **Maintenance**: Next, we tackle the second property: showing that each iteration maintains the
+> loop invariant. Informally, the body of the **for** loop works by moving the values in $A[i-1]$,
+> $A[i-2]$, $A[i-3]$, and so on by one position to the right until it finds the proper position for
+> $A[i]$ (lines 4-7), at which point it inserts the value of $A[i]$ (line 8). The subarray $A[1:i]$
+> then consists of the elements originally in $A[1:i]$, but in sorted order. **_Incrementing_** $i$
+> (increasing its value by $1$) for the next iteration of the **for** loop then preserves the loop
+> invariant. A more formal treatment of the second property would require us to state and show a
+> loop invariant for the **while** loop of lines 5-7. Let’s not get bogged down in such formalism
+> just yet. Instead, we’ll rely on our informal analysis to show that the second property holds for
+> the outer loop.
+>
+> **Termination**: Finally, we examine loop termination. The loop variable $i$ starts at 2 and
+> increases by $1$ in each iteration. Once $i$’s value exceeds $n$ in line 1, the loop terminates.
+> That is, the loop terminates once $i$ equals $n + 1$. Substituting $n + 1$ for $i$ in the wording
+> of the loop invariant yields that the subarray $A[i:n]$ consists of the elements originally in
+> $A[1:n]$, but in sorted order. Hence, the algorithm is correct. (p.21)
