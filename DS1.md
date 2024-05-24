@@ -42,7 +42,7 @@ antes, e depois, de cada iteração.
 ### 2.1 Insertion Sort
 
 > [...] Insertion sort works the way you might sort a hand of playing cards. Start with an empty
-> left hand and the cards in a pile on the table. Pick up the ûrst card in the pile and hold it with
+> left hand and the cards in a pile on the table. Pick up the first card in the pile and hold it with
 > your left hand. Then, with your right hand, remove one card at a time from the pile, and insert it
 > into the correct position in your left hand. As Figure 2.1 illustrates, you find the correct
 > position for a card by comparing it with each of the cards already in your left hand, starting at
@@ -80,7 +80,7 @@ antes, e depois, de cada iteração.
 > Loop invariants help us understand why an algorithm is correct. When you’re using a loop
 > invariant, you need to show three things:
 >
-> - **Initialization**: It is true prior to the ûrst iteration of the loop.
+> - **Initialization**: It is true prior to the first iteration of the loop.
 > - **Maintenance**: If it is true before an iteration of the loop, it remains true before the next
 >   iteration.
 > - **Termination**: The loop terminates, and when it terminates, the invariant usually along with
@@ -100,7 +100,7 @@ antes, e depois, de cada iteração.
 > iteration, when $i = 2$. The subarray A[1:i-1] consists of just the single element A[1], which is
 > in fact the original element in A[1]. Moreover, this subarray is sorted (after all, how could a
 > subarray with just one value not be sorted?), which shows that the loop invariant holds prior to
-> the ûrst iteration of the loop.
+> the first iteration of the loop.
 >
 > **Maintenance**: Next, we tackle the second property: showing that each iteration maintains the
 > loop invariant. Informally, the body of the **for** loop works by moving the values in $A[i-1]$,
