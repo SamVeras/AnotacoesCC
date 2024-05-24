@@ -39,19 +39,19 @@ antes, e depois, de cada iteração.
 > for the difference in constant factors. No matter how much smaller $c_1$ is than $c_2$, there is
 > always a crossover point beyond which merge sort is faster. **_(p.12)_**
 
-### 2.1 Insertion Sort
+## 2.1 Insertion Sort
 
 > [...] Insertion sort works the way you might sort a hand of playing cards. Start with an empty
-> left hand and the cards in a pile on the table. Pick up the first card in the pile and hold it with
-> your left hand. Then, with your right hand, remove one card at a time from the pile, and insert it
-> into the correct position in your left hand. As Figure 2.1 illustrates, you find the correct
-> position for a card by comparing it with each of the cards already in your left hand, starting at
-> the right and moving left. As soon as you see a card in your left hand whose value is less than or
-> equal to the card you’re holding in your right hand, insert the card that you’re holding in your
-> right hand just to the right of this card in your left hand. If all the cards in your left hand
-> have values greater than the card in your right hand, then place this card as the leftmost card in
-> your left hand. At all times, the cards held in your left hand are sorted, and these cards were
-> originally the top cards of the pile on the table. **_(p.18)_**
+> left hand and the cards in a pile on the table. Pick up the first card in the pile and hold it
+> with your left hand. Then, with your right hand, remove one card at a time from the pile, and
+> insert it into the correct position in your left hand. As Figure 2.1 illustrates, you find the
+> correct position for a card by comparing it with each of the cards already in your left hand,
+> starting at the right and moving left. As soon as you see a card in your left hand whose value is
+> less than or equal to the card you’re holding in your right hand, insert the card that you’re
+> holding in your right hand just to the right of this card in your left hand. If all the cards in
+> your left hand have values greater than the card in your right hand, then place this card as the
+> leftmost card in your left hand. At all times, the cards held in your left hand are sorted, and
+> these cards were originally the top cards of the pile on the table. **_(p.18)_**
 
 > ```C
 > INSERTION-SORT(A, n)
@@ -66,6 +66,8 @@ antes, e depois, de cada iteração.
 > ```
 >
 > **_(p.19)_**
+
+### Loop invariants and the correctness of insertion sort
 
 > [...] At the beginning of each iteration of the **for** loop, which is indexed by $i$ , the
 > **_subarray_** (a contiguous portion of the array) consisting of elements $A[1:i-1]$ (that is,
@@ -137,6 +139,41 @@ antes, e depois, de cada iteração.
 
 > To analyze the `INSERTION-SORT` procedure, let’s view it on the following page with the time cost
 > of each statement and the number of times each statement is executed. For each $i = 2, 3 \dots n$
-> , let $t_i$ denote the number of times the **while** loop test in line 5 is executed for that value of
-> $i$. When a **for** or **while** loop exits in the usual way because the test in the loop header
-> comes up `FALSE` the test is executed one time more than the loop body. **_(p.29)_**
+> , let $t_i$ denote the number of times the **while** loop test in line 5 is executed for that
+> value of $i$. When a **for** or **while** loop exits in the usual way because the test in the loop
+> header comes up `FALSE` the test is executed one time more than the loop body. **_(p.29)_**
+
+#### Worst-case and average-case analysis
+
+> - The worst-case running time of an algorithm gives an upper bound on the run- ning time for any
+>   input. If you know it, then you have a guarantee that the algorithm never takes any longer. You
+>   need not make some educated guess about the running time and hope that it never gets much worse.
+>   [...] (p.31)
+> - For some algorithms, the worst case occurs fairly often. For example, in search- ing a database
+>   for a particular piece of information, the searching algorithm’s worst case often occurs when
+>   the information is not present in the database. In some applications, searches for absent
+>   information may be frequent.
+> - The "average case" is often roughly as bad as the worst case. [...] **_(p.32)_**
+
+#### Order of growth
+
+> Let’s now make one more simplifying abstraction: it is the rate of growth, or order of growth, of
+> the running time that really interests us. We therefore consider only the leading term of a
+> formula (e.g., $an^2$ ), since the lower-order terms are relatively insignificant for large values
+> of $n$. We also ignore the leading term’s constant coefficient, since constant factors are less
+> significant than the rate of growth in determining computational efficiency for large inputs.
+> **_(p.32)_**
+
+> To highlight the order of growth of the running time, we have a special notation that uses the
+> Greek letter $\Theta$‚ (theta). We write that insertion sort has a worst-case running time of
+> $\Theta(n^2)$ (pronounced "theta of n-squared" or just "theta n-squared"). We also write that
+> insertion sort has a best-case running time of $\Theta(n)$ ("theta of n" or "theta n"). For now,
+> think of $\Theta$ notation as saying "roughly proportional when n is large" so that $\Theta(n^2)$
+> means "roughly proportional to $n^2$ when $n$ is large" and $\Theta(n)$ means "roughly
+> proportional to n when n is large". **_(p.33)_**
+
+> [...] on large enough inputs, an algorithm whose worst-case running time is $\Theta(n^2)$, for
+> example, takes less time in the worst case than an algorithm whose worst-case running time is
+> $\Theta(n^3)$. Regardless of the constants hidden by the $\Theta$ notation, there is always some
+> number, say $n_0$, such that for all input sizes $n \geq n_0$, the $\Theta(n^2)$ algorithm beats
+> the $\Theta(n^3)$ algorithm in the worst case. **_(p.33)_**
