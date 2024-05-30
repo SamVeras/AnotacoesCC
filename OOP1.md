@@ -41,37 +41,45 @@ Cada objeto é uma **instância** de uma classe na memória do computador.
 
 ## Classe
 
-A classe possibilita a criação de objetos que compartilham características
-comuns.
+A classe é um 'molde' que possibilita a criação de objetos que compartilham
+características comuns.
 
-```C++
-class Livro {
-   public:
-    // Atributos
-    std::string titulo;
-    std::string autor;
-    int ano_publicacao;
-    double preco;
-
-    // Métodos
-    void abrir(){};
-    void fechar(){};
-    void lerPagina(int numeroPagina){};
-};
-```
-
-Código escrito para definir os atributos/propriedades e operações/métodos de um
-objeto.
+Ela é um conjunto de atributos (propriedades) e comportamentos (métodos) que os
+objetos daquela classe terão.
 
 É um _template_ para a criação de objetos.
 
-## Instanciação
-
 ```C++
-Livro livro_mem_pos;
+using std::string;
+class Livro {
+   public:
+    // Atributos
+    string titulo;
+    string autor;
+    int ano_publicacao;
+    int preco;
+
+    // Métodos
+    void abrir(){
+      // Lógica de implementação
+    }
+    void fechar(){
+      // Lógica de implementação
+    }
+    void ler_pagina(int pagina){
+      // Lógica de implementação
+    }
+};
 ```
 
+## Instanciação
+
 Se refere à criação de um objeto a partir de uma classe.
+
+```C++
+Livro livro_mem_pos; // Instanciação de um objeto Livro.
+                     // Nota-se que nesse caso ele utilizaria o construtor padrão.
+```
 
 Quando os objetos são criados, seus atributos podem ter valores atribuídos,
 tornando cada objeto do mesmo tipo uma entidade única.
@@ -83,16 +91,15 @@ livro_mem_pos.ano_publicacao = 1881;
 livro_mem_pos.preco = 22.50;
 ```
 
-Cada atributo é escrito na classe com uma variável pública ou um procedimento de
-propriedade.
+Cada atributo é uma variável dentro da classe.
 
 ```cpp
 class Livro {
    public:
-    void definirPreco(double preco) {
+    void definir_preco(double preco) {
         this->preco = preco;
         std::cout << "Preço de livro alterado.\n";
-    };
+    } // Esse tipo de função pode ser chamado de 'setter'
 };
 ```
 
@@ -105,14 +112,88 @@ através de um método especial conhecido como **construtor**.
 ```C++
 class Livro {
    public:
-    Livro(std::string t, std::string a, int y)
-        : titulo(t), autor(a), ano_publicacao(y), preco(0){};
+    Livro(std::string t, std::string a, int y) : titulo(t), autor(a),
+                                                 ano_publicacao(y), preco(0){};
+    // Esse é um exemplo de construtor em C++ chamado
+    // construtor de inicialização de lista de membros (member initializer list).
+    // Também seria possível utilizar a inicialização direta.
 };
 ```
 
 ```C++
-Livro new_livro("Mais Um Livro de Autoajuda", "Caio Rolando da Rocha", 2022);
+Livro novo_livro("Mais Um Livro de Autoajuda", "Caio Rolando da Rocha", 2022);
+// Aqui, novo_livro é uma instância da classe Livro.
 ```
+
+## Herança
+
+É o conceito onde uma classe deriva seus métodos e atributos de outra classe.
+
+Herança pode resultar numa hierarquia de classes.
+
+```C++
+class DispositivoEletronico {
+   public:
+    void ligar(){
+      std::cout << "Dispositivo ligado\n";
+    }
+    void desligar(){
+      std::cout << "Dispositivo desligado\n";
+    }
+};
+
+class Televisao : public DispositivoEletronico {
+   public:
+    void assistir(){
+      std::cout << "Assistindo TV\n";
+    }
+};
+
+int main() {
+    Televisao tv_da_sala;
+    tv_da_sala.ligar();
+    tv_da_sala.assistir();
+    tv_da_sala.desligar();
+
+    return 0;
+}
+```
+
+#### Terminologia:
+
+A classe no começo da hierarquia de herança se chama **_classe base_**.
+
+Qualquer classe derivada de outra é chamada **_subclasse_** ou **classe
+derivada**.
+
+Aquela classe da qual outras classes são derivadas é uma **_superclasse_**.
+
+Nota-se que existem dois tipos de superclasse:
+
+- a **_superclasse direta_**, que é herdada explicitamente (um nível acima na
+  hierarquia),
+- e a **_superclasse indireta_**, herdada de dois ou mais níveis acima na
+  hierarquia.
+
+Frequentemente, a herança define uma relação de "é um" ou "tipo de" entre
+objetos.
+
+```C++
+// Na geometria um retângulo ->é um<- quadrilátero.
+class Quadrilatero;
+class Retangulo : public Quadrilatero;
+```
+
+```C++
+class Pessoa;
+class Funcionario : public Pessoa;
+class Programador : public Funcionario;
+// Um programador é um ->tipo de<- funcionário que é um ->tipo de<- pessoa.
+```
+
+A declaração de uma subclasse não afeta o código de sua super classe.
+
+A herança preserva a integridade da superclasse.
 
 ## Abstração
 
@@ -122,7 +203,7 @@ essenciais sejam mantidas.
 Podemos criar uma classe abstrata que possui os atributos e métodos comuns entre
 um grupo de objetos que herdarão essa classe.
 
-Podemos ter, por exemplo, diversos instrumentos musicais com o método "tocar",
+Ppor exemplo, podemos ter diversos instrumentos musicais com o método "tocar",
 sendo que todos executam esse método de forma diferente e específica ao
 instrumento.
 
@@ -131,35 +212,36 @@ Por definição, uma classe abstrata deve possuir pelo menos um método virtual.
 ```C++
 class Instrumento {
    public:
-    virtual void tocar() = 0  // Função virtual
+    virtual void tocar() = 0;
+    // Função virtual pura, tornando Instrumento uma classe abstrata
 };
 
 class Guitarra : public Instrumento {
    public:
     void tocar() override {
-        std::cout << "Tocando a guitarra" << std::endl;
+        std::cout << "Tocando a guitarra\n";
     }
 };
 
 class Piano : public Instrumento {
    public:
     void tocar() override {
-        std::cout << "Tocando o piano" << std::endl;
+        std::cout << "Tocando o piano\n";
     }
 };
 ```
 
 A lógica específica que cada instrumento implementa para ser tocado é omitida e
-todos os instrumentos podem ser tocados pela chamada de um mesmo método, sem
-que o usuário se preocupe com o que está acontecendo por trás da execução, isso
-é abstração.
+todos os instrumentos podem ser tocados pela chamada de um mesmo método, sem que
+o usuário se preocupe com o que está acontecendo por trás da execução. Isso é
+abstração.
 
 ## Encapsulamento
 
 Também conhecido como _ocultação de informação_.
 
 Se refere à prática de esconder os dados e a complexidade do funcionamento
-interno de um objeto e permitir o acesso somente por meio de _interfaces_
+interno de um objeto e permitir o acesso somente por meio de **_interfaces_**
 controladas.
 
 ```C++
@@ -172,99 +254,38 @@ class ContaBancaria {
     ContaBancaria(double saldo_inicial, int numero)
         : saldo(saldo_inicial), numero_conta(numero) {
     }
-
     void depositar(double valor) {
         saldo += valor;
     }
-
     void sacar(double valor) {
-        if (valor <= saldo) {
+        if (valor <= saldo)
             saldo -= valor;
-        }
+        else
+            std::cout << "Saldo insuficiente\n";
     }
-
-    int getNumeroConta() const {
+    int get_numero_conta() const {
         return numero_conta;
+    }
+    double getSaldo() const {
+        return saldo;
     }
 };
 ```
 
 Para escrever código que cria um objeto à partir de uma classe, atribuir valores
-a seus atributos e utilizar seus métodos, não é estritamente necessário
-entender o funcionamento interno da classe.
+a seus atributos e utilizar seus métodos, não é estritamente necessário entender
+o funcionamento interno da classe.
 
-É necessário saber o nome da classe, seus atributos e métodos disponíveis, e os
-dados que precisam ser fornecidos quando esses métodos são utilizados. Isto é,
-é necessário saber a **interface da classe**.
+É necessário saber:
+
+- o nome da classe,
+- seus atributos e métodos disponíveis,
+- os dados que precisam ser fornecidos quando esses métodos são utilizados.
+
+Isto é, é necessário saber a **_interface da classe_**.
 
 A encapsulação simplifica a utilização de objetos e garante que os dados e
 operações encapsulados estão seguros.
-
-## Herança
-
-É o conceito onde uma classe deriva seus métodos e atributos de outra classe.
-
-Herança pode resultar numa hierarquia de classes.
-
-```C++
-class DispositivoEletronico {
-   public:
-    void ligar(){};
-    void desligar(){};
-};
-
-class Televisao : public DispositivoEletronico {
-   public:
-    void assistir(){};
-};
-
-int main() {
-    Televisao tv_da_sala;
-    tv_da_sala.ligar();
-    tv_da_sala.assistir();
-    tv_da_sala.desligar();
-    return 0;
-}
-```
-
-A classe no começo da hierarquia de herança se chama **classe base**.
-
-Qualquer classe derivada de outra é chamada **subclasse** ou
-**classe derivada**.
-
-Aquela classe da qual outras classes são derivadas é uma **superclasse**.
-
-Nota-se que existem dois tipos de superclasse:
-
-- a superclasse **direta**, que é herdada explicitamente (um nível acima na
-  hierarquia),
-- e a superclasse **indireta**, herdada de dois ou mais níveis acima na
-  hierarquia.
-
-Frequentemente, a herança define uma relação de "é um" ou "tipo de" entre
-objetos.
-
-```C++
-// Na geometria um retângulo ->é um<- quadrilátero.
-class Retangulo : public Quadrilatero {
-    // ...
-}
-```
-
-```C++
-// Um programador é um ->tipo de<- funcionário que é um ->tipo de<- pessoa.
-class Funcionario : public Pessoa {
-    // ...
-}
-
-class Programador : public Funcionario {
-    // ...
-}
-```
-
-A declaração de uma subclasse não afeta o código de sua super classe.
-
-A herança preserva a integridade da superclasse.
 
 ## Polimorfismo
 
@@ -275,13 +296,13 @@ processar objetos diferentemente de acordo com sua classe ou tipo de dados.
 
 Isso significa que uma classe pode implementar um método herdado de sua própria
 maneira, e é então possível utilizar classes diferentes através da mesma
-_interface_.
+**interface**.
 
 Por exemplo, contemple a seguinte frase:
 
 > Eu comprei um celular novo!
 
-Essa frase continua sendo verdadeira se você tivesse comprado um iPhone 11,
+Essa frase continua sendo verdadeira caso você tenha comprado um iPhone 11,
 Samsung S20 ou um Redmi Note 9.
 
 A flexibilidade (polimorfismo) da palavra "celular" significa que você não
@@ -291,13 +312,13 @@ precisa especificar exatamente o tipo de celular a que você se refere.
 class Veiculo {
    public:
     virtual void mover() = 0;
-    /* O método mover() é abstrato & puro, isso é, as
-    subclasses precisam o implementar para utilizá-lo */
+    /* O método mover() é abstrato & puro, ou seja,
+    as subclasses precisam implementá-lo para utilizá-lo */
 };
 
 class Carro : public Veiculo {
    public:
-    int numeroPortas;
+    int numero_portas;
     void mover() override {
         // Lógica para mover um carro
     }
@@ -305,7 +326,7 @@ class Carro : public Veiculo {
 
 class Aviao : public Veiculo {
    public:
-    double envergaduraAsa;
+    double envergadura_asa;
     void mover() override {
         // Lógica para mover um avião
     }
@@ -328,6 +349,25 @@ herdado, é possível alcançar o polimorfismo.
 Para qualquer instância de classe derivada de Veiculo, é possível chamar o
 método `mover()` e, dependendo da subclasse específica do objeto, sua respectiva
 implementação seria utilizada.
+
+```C++
+int main() {
+    Veiculo* v1 = new Carro();
+    Veiculo* v2 = new Aviao();
+    Veiculo* v3 = new Barco();
+
+    v1->mover(); // Chama mover() do Carro
+    v2->mover(); // Chama mover() do Aviao
+    v3->mover(); // Chama mover() do Barco
+
+    delete v1;
+    delete v2;
+    delete v3;
+
+    return 0;
+}
+
+```
 
 # C++
 
